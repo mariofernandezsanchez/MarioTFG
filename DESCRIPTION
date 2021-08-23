@@ -20,3 +20,5 @@ LazyData: true
 Imports: Rcpp, BiocManager, universalmotif
 RoxygenNote: 7.1.1
 Language: es-ES
+URL: https://github.com/mariofernandezsanchez/MarioTFG
+BugReports: https://github.com/mariofernandezsanchez/MarioTFG/issues
