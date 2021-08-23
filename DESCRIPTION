@@ -10,10 +10,10 @@ Description: Este paquete esta realizado por Mario Fernández Sánchez para la
     del motif más problable, desarrollar un sistema de puntuación para cada peaks,
     y determinar un umbral para separar los peaks potencialmente funcionales de 
     los que no. (Almagro-Hernández, G. and Fernández-Breis, J., 2020.
-    Discovering the Most Characteristic Motif from a Set of Peak 
-    Sequences. Bioinformatics and Biomedical Engineering, pp.445-456. 
+    Discovering the Most Characteristic Motif from a Set of Peak Sequences. 
+    Bioinformatics and Biomedical Engineering, pp.445-456. 
     doi: 10.1007/978-3-030-45385-5_40.)
-Depends: R (>= 3.5.0)
+Depends: R (>= 4.1.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
