@@ -1,0 +1,22 @@
+Package: MarioTFG
+Type: Package
+Title: Métodos bioinformáticos para la caracterización de sitios de unión de 
+    factores de transcripción
+Version: 0.1.0
+Author: Mario Fernández Sánchez
+Maintainer: Mario Fernandez <mario.f.s@um.es>
+Description: Este paquete esta realizado por Mario Fernández Sánchez para la 
+    consecución de su TFG, con la idea de estandarizar el proceso de predicción
+    del motif más problable, desarrollar un sistema de puntuación para cada 
+    peaks, y determinar un umbral para separar los peaks potencialmente 
+    funcionales de los que no. (Almagro-Hernández, G. and Fernández-Breis, J., 
+    2020. Discovering the Most Characteristic Motif from a Set of Peak 
+    Sequences. Bioinformatics and Biomedical Engineering, pp.445-456. 
+    doi: 10.1007/978-3-030-45385-5_40.)
+Depends: R (>= 3.5.0)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: Rcpp, BiocManager, universalmotif
+RoxygenNote: 7.1.1
+Language: es-ES
