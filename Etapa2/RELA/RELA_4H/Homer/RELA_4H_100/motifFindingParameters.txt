@@ -1,0 +1,1 @@
+cmd = /home/ariquelme/seq_100_peaks_GSE117250_BJAB_4h-activation_both.fasta human /home/ariquelme/RELA_4H_100 -fastaBg /home/ariquelme/seq_genome_background_peaks_both.fasta -p 45 -len 8,10,12

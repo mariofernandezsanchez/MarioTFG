@@ -1,0 +1,1 @@
+cmd = /home/ariquelme/seq_200_peaks_GSE70660_CD34_FETAL_both.fasta human /home/ariquelme/RUNX1_Fetal_200 -fastaBg /home/ariquelme/seq_genome_background_peaks_both.fasta -p 45 -len 8,10,12
