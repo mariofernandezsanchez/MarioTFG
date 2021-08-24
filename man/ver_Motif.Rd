@@ -4,10 +4,12 @@
 \alias{ver_Motif}
 \title{Dibuja un plot con el motif indicado}
 \usage{
-ver_Motif(x)
+ver_Motif(motif, n)
 }
 \arguments{
-\item{x}{Motif que queremos ver}
+\item{motif}{Motif que queremos ver}
+
+\item{n}{Numero del motif dentro de la secuencia}
 }
 \value{
 El gráfico con el logo de secuencia del motif
@@ -18,5 +20,5 @@ Función que dibuja un gráfico del motif que se le índica como parametro
 \note{
 motif <- leer_Motif("./xxx/xxx.motif")
 
-ver_Motif(motif[1])
+ver_Motif(motif[n])
 }

@@ -2,11 +2,11 @@
 #' @description Función que obtiene la puntuacióin de un motif especificado por
 #' parametro según la formula matematica de (Almagro-Hernández and
 #' Fernández-Breis, 2020)
-#' @param motif El motiv del que se quiere obtener las puntuaciones
-#' #' @param x Numero del motif dentro de la secuencia
+#' @param motif El motiv en formato data.frame del que se quiere obtener las puntuaciones
+#' @param x Numero del motif dentro de la secuencia
 #' @return El resultado de la puntuación para ese motif
 #' @note
-#' puntuacion_Motif(motif)
+#' puntuacion_Motif(motifdf, x)
 #'
 #' @export
 puntuacion_Motif=function(motif, x){

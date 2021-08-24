@@ -3,9 +3,9 @@
 #' @param rutadelmotiv Ruta en nuestro pc del motif que queremos importar
 #' @return El motif importado con los parametros más destacables
 #' @note
-#' leer_motif(rutadelmotiv = "./ejemplo/ejemplo.motif")
+#' leer_Motifs(rutadelmotiv = "./ejemplo/ejemplo.motif")
 #'
 #' @export
-leer_Motif=function(rutadelmotiv){
+leer_Motifs=function(rutadelmotiv){
   read_homer(rutadelmotiv)
 }

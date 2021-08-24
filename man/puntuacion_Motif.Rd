@@ -7,8 +7,9 @@
 puntuacion_Motif(motif, x)
 }
 \arguments{
-\item{motif}{El motiv del que se quiere obtener las puntuaciones
-#' @param x Numero del motif dentro de la secuencia}
+\item{motif}{El motiv en formato data.frame del que se quiere obtener las puntuaciones}
+
+\item{x}{Numero del motif dentro de la secuencia}
 }
 \value{
 El resultado de la puntuación para ese motif
@@ -19,5 +20,5 @@ parametro según la formula matematica de (Almagro-Hernández and
 Fernández-Breis, 2020)
 }
 \note{
-puntuacion_Motif(motif)
+puntuacion_Motif(motifdf, x)
 }

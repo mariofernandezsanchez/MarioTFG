@@ -5,10 +5,10 @@
 #' @param motif Motif que queremos ver
 #' @return Motif en formato data.frame
 #' @note
-#'  convertirDF_Motif(motif)
+#'  convertirDF_Motifs(motif)
 #'
-#'  motifDF <- convertirDF_Motif(motif)
+#'  motifDF <- convertirDF_Motifs(motif)
 #' @export
-convertirDF_Motif=function(motif){
+convertirDF_Motifs=function(motif){
  summarise_motifs(motif)
 }
