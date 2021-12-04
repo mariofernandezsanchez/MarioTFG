@@ -1,25 +1,41 @@
 Package: MarioTFG
 Type: Package
-Title: Métodos bioinformáticos para la caracterización de sitios de unión de 
-    factores de transcripción
+Title: Discovering the Most Characteristic Motif from a Set of Peak Sequences
 Version: 0.1.0
-Author: Mario Fernández Sánchez
-Maintainer: Mario Fernandez <mario.f.s@um.es>
-Description: Este paquete esta realizado por Mario Fernández Sánchez para la 
-    consecución de su TFG. Cuyo proposito es estandarizar el proceso de 
-    predicción del motif más problable, desarrollar un sistema de puntuación 
-    para cada peaks, y determinar un umbral para separar los peaks
-    potencialmente funcionales de los que no. 
-    (Almagro-Hernández, G. and Fernández-Breis, J., 2020.
-    Discovering the Most Characteristic Motif from a Set of Peak Sequences. 
-    Bioinformatics and Biomedical Engineering, pp.445-456. 
-    doi: 10.1007/978-3-030-45385-5_40.)
+Authors@R: c(
+      person(c("Fernández", "Sánchez"), "Mario", role = c("aut", "cre"),
+        email = "mario.f.s@um.es")
+    )
+BugReports: https://github.com/mariofernandezsanchez/MarioTFG/issues
+Description: This package is made by Mario Fernández Sánchez for the
+      achievement of his TFG. Whose purpose is to standardize the process of
+      prediction of the most likely motif, develop a scoring system
+      for each peaks, and determine a threshold to separate the peaks
+      potentially functional of those that are not. 
+      From work previously done by:
+      AUTHOR/S: Ginés Almagro-Hernández, Jesualdo Tomás Fernández-Breis
+      EMAILS: gines.almagro@um.es, jfernand@um.es
+      TITLE: Discovering the Most Characteristic Motif from a Set of Peak 
+      Sequences
+      ORGANIZING ENTITY: University of Granada
+      TYPE OF PARTICIPATION: Oral communication / Publication in Proceedings
+      CONGRESS TITLE: IWBBIO 2020 - 8th International Work-Conference on
+      Bioinformatics and Biomedical Engineering
+      AMBIT: international level
+      PUBLICATION DATA:
+      Volume: Lecture Notes in Bioinformatics 12108
+      Publisher: Springer
+      Pages (initial and final): 445-456
+      Country of Publication: Spain
+      Publication year: 2020
+      ISSN / ISBN (if you have it) / Legal Deposit: 978-3-030-45384-8
+      CELEBRATION PLACE: Granada (Spain)
+      DATE: September 30 - October 2, 2020
 Depends: R (>= 4.1.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: Rcpp, BiocManager, universalmotif
+Imports: Rcpp, BiocManager, universalmotif, heatmaply
 RoxygenNote: 7.1.1
-Language: es-ES
+Language: en-GB
 URL: https://github.com/mariofernandezsanchez/MarioTFG
-BugReports: https://github.com/mariofernandezsanchez/MarioTFG/issues
