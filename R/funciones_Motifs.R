@@ -36,7 +36,7 @@ compare_Motifs=function(motif, type, method){
 #' @description Function that ...
 #' @param consensus The consensus of the motif
 #' @param name Name of motif
-#' @param pseudoc
+#' @param pseudocount ....
 #'
 #' @return A new motif (class universalmotif)
 #' @note
@@ -47,19 +47,56 @@ create_Motif=function(consensus,name){
   universalmotif::create_motif(input = consensus,name = name,pseudocount = 1/3)
 }
 
-#' @title Create motifs
+#' @title Create motif ...
 #' @description Function that ...
-#' @param consensus The consensus of the motif
-#' @param name Name of motif
-#' @param pseudoc
-#'
-#' @return A new motif (class universalmotif)
+#' @param listbkg The motif ...
+#' @return Add new param  pval bkg
 #' @note
 #'  alphabet default DNA, type default PPM
 #'
 #' @export
 create_MotifBkg=function(listbkg){
   universalmotif::create_motif(bkg = listbkg)
+}
+
+#' @title Create motif ...
+#' @description Function that ...
+#' @param pval The motif ...
+#' @return Add new param  pval
+#' @note
+#'  alphabet default DNA, type default PPM
+#'
+#' @export
+create_Motifpval=function(pval){
+  universalmotif::create_motif(pval =  pval)
+}
+
+#' @title Create motif ...
+#' @description Function that ...
+#' @param pval The motif ...
+#' @return Add new param  pval
+#' @note
+#'  alphabet default DNA, type default PPM
+#'
+#' @export
+create_Motifpval=function(pval){
+  universalmotif::create_motif()
+}
+
+#' @title Enrich motif ... TODO
+#' @description Function that ... TODO
+#' @param motifs Motifs we use .. . TODO
+#' @param seq Sequence we use .. . TODO
+#' @param qval Sequence we use .. . TODO
+#' @return The motif TODO
+#' @note
+#'
+#'
+#' @export
+enrich_Motifs=function(motif,seq){
+  universalmotif::enrich_motifs(motifs = motif, sequences = seq, tryRC = T,
+                                threshold = 0.80, threshold.type = logodds,
+                                qval.method = BH)
 }
 
 #' @title Convert motif (list) in a Data Frame
@@ -76,6 +113,20 @@ listToDF_Motifs=function(motif){
   universalmotif::summarise_motifs(motif)
 }
 
+#' @title Merge motifs ... TODO
+#' @description Function that helps ... TODO
+#' @param motifs Motif we want to see
+#' @return The motifs merged
+#' @note
+#'
+#' merge.motifs <- merge_Motifs=function(motif)
+#' view_motifs(merge_motif(m1, m2, m3))
+#'
+#' @export
+merge_Motifs=function(m1, m2, m3, m4){
+  universalmotif::merge_motifs(m1, m2, m3, m4, method = PCC, use.type = PPM, tryRC = F)
+
+}
 
 #' @title Import motifs in format HOMER
 #' @description Function that loading y makes a motif understandable to humans
@@ -140,10 +191,11 @@ score_Motif=function(motif, x){
 }
 
 #' @title Scan sequences for matches to input motifs
-#' @description TODO
+#' @description TODO ...
 #' @param motif The motif in data.frame format from which you want to obtain the scores
-#' @param x Motif number within the sequence
-#' @return The score result for that motif
+#' @param seq TODO ...
+#' @param th TODO ...
+#' @return TODO ...
 #' @note
 #' score_Motif(motifdf, x)
 #'
@@ -151,6 +203,7 @@ score_Motif=function(motif, x){
 scan_Motif=function(motif,seq,th){
   universalmotif::scan_sequences(motifs = motif,sequences = seq,threshold = th,
                                  threshold.type = "logodds",RC = TRUE)
+
 }
 
 #' @title Draw a plot with the indicated motif
@@ -165,4 +218,17 @@ scan_Motif=function(motif,seq,th){
 #' @export
 see_Motif=function(motif,n){
   universalmotif::view_motifs(motif[n])
+}
+
+
+#' @title Trim motifs
+#' @description Function that ... TODO
+#' @param motif Motif already merged
+#' @return The definitive motif
+#' @note
+#' def.motif <- trim_Motifs(motif)
+#'
+#' @export
+trim_Motifs=function(motif){
+  universalmotif::trim_motifs(motifs = motif)
 }
