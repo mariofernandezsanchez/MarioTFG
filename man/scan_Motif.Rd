@@ -9,13 +9,15 @@ scan_Motif(motif, seq, th)
 \arguments{
 \item{motif}{The motif in data.frame format from which you want to obtain the scores}
 
-\item{x}{Motif number within the sequence}
+\item{seq}{TODO ...}
+
+\item{th}{TODO ...}
 }
 \value{
-The score result for that motif
+TODO ...
 }
 \description{
-TODO
+TODO ...
 }
 \note{
 score_Motif(motifdf, x)

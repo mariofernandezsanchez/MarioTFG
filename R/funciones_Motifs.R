@@ -79,7 +79,7 @@ create_Motifpval=function(pval){
 #'  alphabet default DNA, type default PPM
 #'
 #' @export
-create_Motifpval=function(evall){
+create_Motifeval=function(evall){
   universalmotif::create_motif(eval = evall)
 }
 
@@ -90,7 +90,7 @@ create_Motifpval=function(evall){
 #' @param qval Sequence we use .. . TODO
 #' @return The motif TODO
 #' @note
-#'
+#' enrich...
 #'
 #' @export
 enrich_Motifs=function(motif,seq){

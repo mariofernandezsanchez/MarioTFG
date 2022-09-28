@@ -36,6 +36,6 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: Rcpp, BiocManager, universalmotif, heatmaply
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 Language: en-GB
 URL: https://github.com/mariofernandezsanchez/MarioTFG

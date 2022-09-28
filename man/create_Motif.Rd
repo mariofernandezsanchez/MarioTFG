@@ -11,7 +11,7 @@ create_Motif(consensus, name)
 
 \item{name}{Name of motif}
 
-\item{pseudoc}{}
+\item{pseudocount}{....}
 }
 \value{
 A new motif (class universalmotif)
