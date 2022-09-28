@@ -35,8 +35,7 @@ Depends: R (>= 4.1.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: BiocManager, heatmaply
-BiocManager::install("universalmotif") 
+Imports: BiocManager, universalmotif, heatmaply
 RoxygenNote: 7.2.1
 Language: en-GB
 URL: https://github.com/mariofernandezsanchez/MarioTFG
