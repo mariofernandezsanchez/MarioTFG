@@ -1,1 +1,0 @@
-cmd = /home/ariquelme/seq_100_peaks_GSE117250_BJAB_WT_both.fasta human /home/ariquelme/RELA_WT_100 -fastaBg /home/ariquelme/seq_genome_background_peaks_both.fasta -p 35 -len 8,10,12

@@ -1,1 +1,0 @@
-cmd = /home/ariquelme/seq_200_peaks_GSE53855_T-47D_WT_both.fasta human /home/ariquelme/CDK2_WT_200 -fastaBg /home/ariquelme/seq_genome_background_peaks_both.fasta -p 35 -len 8,10,12

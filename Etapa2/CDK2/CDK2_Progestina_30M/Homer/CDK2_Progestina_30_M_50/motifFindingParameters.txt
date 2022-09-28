@@ -1,1 +1,0 @@
-cmd = /home/ariquelme/seq_50_peaks_GSE53855_T-47D_PROGESTIN_30M_both.fasta human /home/ariquelme/CDK2_PROGESTIN_30M_50 -fastaBg /home/ariquelme/seq_genome_background_peaks_both.fasta -p 40 -len 8,10,12
