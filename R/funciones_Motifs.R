@@ -73,14 +73,14 @@ create_Motifpval=function(pval){
 
 #' @title Create motif ...
 #' @description Function that ...
-#' @param pval The motif ...
-#' @return Add new param  pval
+#' @param evall The motif ...
+#' @return Add new param  evall
 #' @note
 #'  alphabet default DNA, type default PPM
 #'
 #' @export
-create_Motifpval=function(pval){
-  universalmotif::create_motif()
+create_Motifpval=function(evall){
+  universalmotif::create_motif(eval = evall)
 }
 
 #' @title Enrich motif ... TODO
