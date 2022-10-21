@@ -113,9 +113,9 @@ listToDF_Motifs=function(motif){
   universalmotif::summarise_motifs(motif)
 }
 
-#' @title Merge motifs ... TODO
+#' @title Merge motifs ... TODO funciona bien
 #' @description Function that helps ... TODO
-#' @param motifs Motif we want to see
+#' @param motifs List of motif we want to merge
 #' @return The motifs merged
 #' @note
 #'
@@ -123,8 +123,9 @@ listToDF_Motifs=function(motif){
 #' view_motifs(merge_motif(m1, m2, m3))
 #'
 #' @export
-merge_Motifs=function(m1, m2, m3, m4){
-  universalmotif::merge_motifs(m1, m2, m3, m4, method = PCC, use.type = PPM, tryRC = F)
+merge_Motifs=function(motifs){
+  universalmotif::merge_motifs(motifs, method = "PCC", use.type = "PPM",
+                               tryRC = F)
 
 }
 
@@ -222,7 +223,8 @@ see_Motif=function(motif,n){
 
 
 #' @title Trim motifs
-#' @description Function that ... TODO
+#' @description Function that Eliminates the positions of those motifs that
+#' contain little information
 #' @param motif Motif already merged
 #' @return The definitive motif
 #' @note

@@ -13,7 +13,8 @@ trim_Motifs(motif)
 The definitive motif
 }
 \description{
-Function that ... TODO
+Function that Eliminates the positions of those motifs that
+contain little information
 }
 \note{
 def.motif <- trim_Motifs(motif)

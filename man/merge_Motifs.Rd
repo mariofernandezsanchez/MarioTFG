@@ -2,12 +2,12 @@
 % Please edit documentation in R/funciones_Motifs.R
 \name{merge_Motifs}
 \alias{merge_Motifs}
-\title{Merge motifs ... TODO}
+\title{Merge motifs ... TODO funciona bien}
 \usage{
-merge_Motifs(m1, m2, m3, m4)
+merge_Motifs(motifs)
 }
 \arguments{
-\item{motifs}{Motif we want to see}
+\item{motifs}{List of motif we want to merge}
 }
 \value{
 The motifs merged
