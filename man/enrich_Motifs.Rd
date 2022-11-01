@@ -2,23 +2,22 @@
 % Please edit documentation in R/funciones_Motifs.R
 \name{enrich_Motifs}
 \alias{enrich_Motifs}
-\title{Enrich motif ... TODO}
+\title{Enrich motifs}
 \usage{
 enrich_Motifs(motif, seq)
 }
 \arguments{
-\item{seq}{Sequence we use .. . TODO}
+\item{seq}{The background sequence}
 
-\item{motifs}{Motifs we use .. . TODO}
-
-\item{qval}{Sequence we use .. . TODO}
+\item{motifs}{The motif to analyze}
 }
 \value{
-The motif TODO
+The enrichment analysis of this motif
 }
 \description{
-Function that ... TODO
+Function that helps us to make an enrichment analysis
+of the refined motif compared to its background sequence.
 }
 \note{
-enrich...
+enrich_Motifs=function(cdk2_100,seq_file_cdk2_100)
 }

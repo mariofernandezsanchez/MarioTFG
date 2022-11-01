@@ -7,18 +7,25 @@
 scan_Motif(motif, seq, th)
 }
 \arguments{
-\item{motif}{The motif in data.frame format from which you want to obtain the scores}
+\item{motif}{The motif in correct format}
 
-\item{seq}{TODO ...}
+\item{seq}{Sequence obtained in step 1 of each experiment
+in DNAStringSet format}
 
-\item{th}{TODO ...}
+\item{th}{Threshold that determines whether or not a sequence contains the
+motif}
 }
 \value{
-TODO ...
+The analysis of scanned sequences
 }
 \description{
-TODO ...
+This function is used to scan the motif of each set
+in its respective set of peaks sequences, in order to obtain the subsequences
+of the same length as the motif, that exceed the established threshold.
+If that score exceeds the predetermined threshold, it is considered that
+there is a match and that subsequence is one of those that the function
+returns and will be used to generate the refined motif.
 }
 \note{
-score_Motif(motifdf, x)
+scan_Motif(motif,seq_file,0,70)
 }

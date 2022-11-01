@@ -4,10 +4,10 @@
 \alias{read_Motifs}
 \title{Import motifs in format HOMER}
 \usage{
-read_Motifs(rutadelmotiv)
+read_Motifs(ourpath)
 }
 \arguments{
-\item{rutadelmotiv}{Path in our pc of the motif that we want to import}
+\item{ourpath}{Path in our pc of the motif that we want to import}
 }
 \value{
 The motif list with the parameters more importants
@@ -16,5 +16,5 @@ The motif list with the parameters more importants
 Function that loading y makes a motif understandable to humans
 }
 \note{
-read_Motifs(rutadelmotiv = "./example/example.motif")
+read_Motifs(ourpath = "./example/example.motif")
 }

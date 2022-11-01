@@ -4,17 +4,19 @@
 \alias{heatMap_Motifs}
 \title{Get a heatmap of the selected motifs (list)}
 \usage{
-heatMap_Motifs(motif)
+heatMap_Motifs(matrix)
 }
 \arguments{
-\item{motif}{List of motifs}
+\item{matrix}{Alignment scoring matrix}
 }
 \value{
-Motif alignment scoring matrix
+Heatmap of the clouter motifs
 }
 \description{
-Function that by means of a graphical plot allows us to visualize the
+Function that by means of a graphical plot allows us
+to visualize the matrix obtained in the comparison of motifs, and that
+helps us to select the cluster that we are looking for.
 }
 \note{
-heatMap_Motifs(motif)
+heatMap_Motifs(compare_Motifs(motif = xxx,"xxx","xxx"))
 }

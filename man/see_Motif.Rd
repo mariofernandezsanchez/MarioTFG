@@ -15,7 +15,8 @@ see_Motif(motif, n)
 The graphic with the motif sequence logo
 }
 \description{
-Function that draws a graphic of the motif that is indicated as a parameter
+Function that draws a graphic of the motif that is indicated as
+a parameter
 }
 \note{
 motif <- read_Motifs("./xxx/xxx.motif")

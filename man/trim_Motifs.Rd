@@ -2,7 +2,7 @@
 % Please edit documentation in R/funciones_Motifs.R
 \name{trim_Motifs}
 \alias{trim_Motifs}
-\title{Trim motifs}
+\title{Trim the motifs}
 \usage{
 trim_Motifs(motif)
 }

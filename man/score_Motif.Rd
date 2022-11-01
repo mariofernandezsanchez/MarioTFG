@@ -7,7 +7,8 @@
 score_Motif(motif, x)
 }
 \arguments{
-\item{motif}{The motif in data.frame format from which you want to obtain the scores}
+\item{motif}{The motif in data.frame format from which you want to obtain the
+scores}
 
 \item{x}{Motif number within the sequence}
 }

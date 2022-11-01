@@ -2,20 +2,20 @@
 % Please edit documentation in R/funciones_Motifs.R
 \name{merge_Motifs}
 \alias{merge_Motifs}
-\title{Merge motifs ... TODO funciona bien}
+\title{Merge motifs}
 \usage{
 merge_Motifs(motifs)
 }
 \arguments{
-\item{motifs}{List of motif we want to merge}
+\item{motifs}{List of motifs we want to merge}
 }
 \value{
-The motifs merged
+The definitive motif
 }
 \description{
-Function that helps ... TODO
+Function that helps us to merge all the motifs into one,
+to obtain the final motif.
 }
 \note{
 merge.motifs <- merge_Motifs=function(motif)
-view_motifs(merge_motif(m1, m2, m3))
 }

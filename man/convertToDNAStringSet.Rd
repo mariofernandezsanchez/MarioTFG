@@ -7,14 +7,17 @@
 convertToDNAStringSet(ourpath, nFlist)
 }
 \arguments{
-\item{motif}{Motif we want to see}
+\item{ourpath}{Path where the sequence will be found}
+
+\item{nFlist}{The file .fasta (number)}
 }
 \value{
-Motif in format data.frame
+The DNAStringSet file
 }
 \description{
-Function that helps us convert ...
+Function that helps us to convert a background sequence
+in a fasta format to one in DNAStringSet format
 }
 \note{
-listToDF_Motifs(motif)
+file<-convertToDNAStringSet=function("ourpath", nFlist)
 }

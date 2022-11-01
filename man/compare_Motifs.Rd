@@ -20,8 +20,9 @@ Motif alignment scoring matrix
 }
 \description{
 Function that compares all motifs to all other motifs and
-helps us to observe which are the motifs that are are closer to each other at the sequence level.
+helps us to observe which are the motifs that are are closer to each other
+at the sequence level.
 }
 \note{
-compare_Motifs(motif, "type", "method") Dont't forget use the quotes in type and method
+compare_Motifs(motif, "type", "method") Dont't forget use the quotes
 }
