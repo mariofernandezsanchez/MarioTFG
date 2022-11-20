@@ -20,4 +20,5 @@ in a fasta format to one in DNAStringSet format
 }
 \note{
 file<-convertToDNAStringSet=function("ourpath", nFlist)
+Example: seq1<-convertToDNAStringSet=function(".", 1)
 }

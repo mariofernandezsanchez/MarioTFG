@@ -15,7 +15,7 @@ export_Jaspar(motif, filename)
 The definitive motif
 }
 \description{
-Function than
+Function that we use to export the motif in Jaspar format
 }
 \note{
 export_Jaspar(motifxxx,"file.txt") *don´t forget the ""

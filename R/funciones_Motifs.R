@@ -7,6 +7,7 @@
 #' @note
 #'
 #' file<-convertToDNAStringSet=function("ourpath", nFlist)
+#' Example: seq1<-convertToDNAStringSet=function(".", 1)
 #'
 #' @export
 convertToDNAStringSet=function(ourpath, nFlist){
@@ -39,69 +40,62 @@ compare_Motifs=function(motif, type, method){
 
 #' @title Create motifs
 #' @description Function that ...
-#' @param consensus The consensus of the motif
-#' @param name Name of motif
-#' @param pseudocount ....
-#'
+#' @param motifs The list of motif
+#' @param name Name of motif.
 #' @return A new motif (class universalmotif)
 #' @note
-#'  alphabet default DNA, type default PPM
+#'
+#' scan50refined <- scan_Motif (motif,seq, th)
+#' 50refined <- create_Motif(scan50refined, "motifp30_50refined")
 #'
 #' @export
-create_Motif=function(consensus,name){
-  universalmotif::create_motif(input = consensus,name = name,pseudocount = 1/3)
-}
-
-#' @title Create motif ...
-#' @description Function that ...
-#' @param listbkg The motif ...
-#' @return Add new param  pval bkg
-#' @note
-#'  alphabet default DNA, type default PPM
-#'
-#' @export
-create_MotifBkg=function(listbkg){
-  universalmotif::create_motif(bkg = listbkg)
-}
-
-#' @title Create motif ...
-#' @description Function that ...
-#' @param pval The motif ...
-#' @return Add new param  pval
-#' @note
-#'  alphabet default DNA, type default PPM
-#'
-#' @export
-create_Motifpval=function(pval){
-  universalmotif::create_motif(pval =  pval)
-}
-
-#' @title Create motif ...
-#' @description Function that ...
-#' @param evall The motif ...
-#' @return Add new param  evall
-#' @note
-#'  alphabet default DNA, type default PPM
-#'
-#' @export
-create_Motifeval=function(evall){
-  universalmotif::create_motif(eval = evall)
+create_MotifRefined=function(scan_target,name){
+  universalmotif::create_motif(Biostrings::DNAStringSet(scan_target$match),
+                               name = name, pseudocount = 1/3)
 }
 
 #' @title Enrich motifs
 #' @description Function that helps us to make an enrichment analysis
 #' of the refined motif compared to its background sequence.
 #' @param motifs The motif to analyze
-#' @param seq The background sequence
+#' @param seq The target sequence
+#' @param bkg The background sequence
+#' @param th Threshold that determines whether or not a sequence contains the
+#' motif
 #' @return The enrichment analysis of this motif
 #' @note
 #'
-#' enrich_Motifs=function(cdk2_100,seq_file_cdk2_100)
+#' enrich_Motifs=function(cdk2_100,seq_file_cdk2_100,0.7)
 #' @export
-enrich_Motifs=function(motif,seq){
-  universalmotif::enrich_motifs(motifs = motif, sequences = seq, tryRC = T,
-                                threshold = 0.80, threshold.type = logodds,
-                                qval.method = BH)
+enrich_Motifs=function(motifRefined,seq,bkg,th){
+  universalmotif::enrich_motifs(motifs = motifRefined, sequences = seq,
+                                bkg.sequences = bkg, RC = T, threshold = th,
+                                threshold.type = "logodds", qval.method = "BH")
+}
+
+#' @title Export motifs to jaspar file
+#' @description Function that we use to export the motif in Jaspar format
+#' @param motif Motif already merged
+#' @param filename Name of the file
+#' @return The definitive motif
+#' @note
+#' export_Jaspar(motifxxx,"file.txt") *don´t forget the ""
+#'
+#' @export
+export_Jaspar=function(motif, filename){
+  universalmotif::write_jaspar(motif,filename)
+}
+#' @title Export motifs to universalmotif file
+#' @description Function we use to export the motif in universalmotif format
+#' @param motif Motif already merged
+#' @param filename Name of the file
+#' @return The definitive motif
+#' @note
+#' export_Jaspar(motifxxx,"file.txt") *don´t forget the ""
+#'
+#' @export
+export_Motif=function(motif, filename){
+  universalmotif::write_motifs(motif,filename)
 }
 
 #' @title Convert motif (list) in a Data Frame
@@ -131,7 +125,6 @@ listToDF_Motifs=function(motif){
 merge_Motifs=function(motifs){
   universalmotif::merge_motifs(motifs, method = "PCC", use.type = "PPM",
                                tryRC = F)
-
 }
 
 #' @title Import motifs in format HOMER
@@ -204,20 +197,20 @@ score_Motif=function(motif, x){
 #' If that score exceeds the predetermined threshold, it is considered that
 #' there is a match and that subsequence is one of those that the function
 #' returns and will be used to generate the refined motif.
-#' @param motif The motif in correct format
+#' @param ClusterMotif The motif in correct format
 #' @param seq Sequence obtained in step 1 of each experiment
 #' in DNAStringSet format
 #' @param th Threshold that determines whether or not a sequence contains the
 #' motif
 #' @return The analysis of scanned sequences
 #' @note
-#' scan_Motif(motif,seq_file,0,70)
+#' scan_Motif(ClusterMotif,seq_file,0,70)
 #'
 #' @export
-scan_Motif=function(motif,seq,th){
-  universalmotif::scan_sequences(motifs = motif,sequences = seq,threshold = th,
-                                 threshold.type = "logodds",RC = TRUE)
-
+scan_Motif=function(ClusterMotif,seq,th){
+  universalmotif::scan_sequences(motifs = ClusterMotif,sequences = seq,
+                                 threshold = th,threshold.type = "logodds",
+                                 RC = TRUE)
 }
 
 #' @title Draw a plot with the indicated motif
@@ -237,7 +230,7 @@ see_Motif=function(motif,n){
 
 
 #' @title Trim the motifs
-#' @description Function that Eliminates the positions of those motifs that
+#' @description Function that eliminates the positions of those motifs that
 #' contain little information
 #' @param motif Motif already merged
 #' @return The definitive motif
@@ -246,19 +239,28 @@ see_Motif=function(motif,n){
 #'
 #' @export
 trim_Motifs=function(motif){
-  universalmotif::trim_motifs(motifs = motif)
+  universalmotif::trim_motifs(motifs = motif, min.ic = 0.25)
 }
 
-#' @title Export motifs to jaspar file
-#' @description Function than
-#' @param motif Motif already merged
-#' @param filename Name of the file
-#' @return The definitive motif
+#' @title Etapa 5
+#' @description Function that ...
+#' @param motifcl The motif obteined in the cluster
+#' @param seq_file The target sequences
+#' @param seqbkg The background sequences
+#' @param name Name of the refined motif
+#' @return The refined motif
 #' @note
-#' export_Jaspar(motifxxx,"file.txt") *don´t forget the ""
 #'
+#' example<-etapa5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50")
+#' TODO: Añadir extra info y ¿bkg?
 #' @export
-export_Jaspar=function(motif, filename){
-  universalmotif::write_jaspar(motif,filename)
-}
+etapa5_Motifs=function(motifcl,seq_file,seqbkg,name){
 
+    scan<-scan_Motif(motifcl,seq_file,0.7)
+    mrefined<-create_MotifRefined(scan, name)
+    menrich<-enrich_Motifs(mrefined,seq_file,seqbkg,0.7)
+    mrefined@pval <- menrich@listData[["Pval"]]
+    mrefined@eval <- menrich@listData[["Eval"]]
+    mrefined@qval <- menrich@listData[["Qval"]]
+    mrefined
+}

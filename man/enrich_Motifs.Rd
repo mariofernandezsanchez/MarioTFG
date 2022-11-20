@@ -4,10 +4,15 @@
 \alias{enrich_Motifs}
 \title{Enrich motifs}
 \usage{
-enrich_Motifs(motif, seq)
+enrich_Motifs(motifRefined, seq, bkg, th)
 }
 \arguments{
-\item{seq}{The background sequence}
+\item{seq}{The target sequence}
+
+\item{bkg}{The background sequence}
+
+\item{th}{Threshold that determines whether or not a sequence contains the
+motif}
 
 \item{motifs}{The motif to analyze}
 }
@@ -19,5 +24,5 @@ Function that helps us to make an enrichment analysis
 of the refined motif compared to its background sequence.
 }
 \note{
-enrich_Motifs=function(cdk2_100,seq_file_cdk2_100)
+enrich_Motifs=function(cdk2_100,seq_file_cdk2_100,0.7)
 }

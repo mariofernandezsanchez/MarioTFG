@@ -13,7 +13,7 @@ trim_Motifs(motif)
 The definitive motif
 }
 \description{
-Function that Eliminates the positions of those motifs that
+Function that eliminates the positions of those motifs that
 contain little information
 }
 \note{
