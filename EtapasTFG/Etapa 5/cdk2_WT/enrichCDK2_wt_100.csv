@@ -1,0 +1,2 @@
+"";"motif";"motif.i";"motif.consensus";"target.hits";"target.seq.hits";"target.seq.count";"bkg.hits";"bkg.seq.hits";"bkg.seq.count";"Pval";"Qval";"Eval";"pct.target.seq.hits";"pct.bkg.seq.hits";"target.enrichment"
+"1";"Motif_100_refined";1;"ATGGAATGGAAT";57;20;276;1;1;276;1,56367137952177e-15;1,56367137952177e-15;3,12734275904353e-15;7,2463768115942;0,36231884057971;20

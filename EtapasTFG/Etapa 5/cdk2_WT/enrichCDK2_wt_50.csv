@@ -1,0 +1,2 @@
+;motif;motif.i;motif.consensus;target.hits;target.seq.hits;target.seq.count;bkg.hits;bkg.seq.hits;bkg.seq.count;Pval;Qval;Eval;pct.target.seq.hits;pct.bkg.seq.hits;target.enrichment
+1;Motif_50_refined;1;ATSGAATGGAAT;32;22;276;1;1;276;1,82E-08;1,82E-08;3,63E-08;7,971014493;0,362318841;22
