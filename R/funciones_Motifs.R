@@ -2,12 +2,13 @@
 #' @description Function that helps us to convert a background sequence
 #' in a fasta format to one in DNAStringSet format
 #' @param ourpath Path where the sequence will be found
-#' @param nFlist The file .fasta (number)
+#' @param nFlist The file .fasta (number in your directory)
 #' @return The DNAStringSet file
 #' @note
-#'
+#' region <- "peaks" (you need load this value to make the function work)
 #' file<-convertToDNAStringSet=function("ourpath", nFlist)
 #' Example: seq1<-convertToDNAStringSet=function(".", 1)
+#' seq1<-convertToDNAStringSet=function(".", 2)
 #'
 #' @export
 convertToDNAStringSet=function(ourpath, nFlist){
@@ -243,7 +244,7 @@ trim_Motifs=function(motif){
 }
 
 #' @title Etapa 5
-#' @description Function that ...
+#' @description Function that we use to obtain the refined motif
 #' @param motifcl The motif obteined in the cluster
 #' @param seq_file The target sequences
 #' @param seqbkg The background sequences
@@ -266,29 +267,38 @@ etapa5_Motifs=function(motifcl,seq_file,seqbkg,name){
 }
 
 #' @title Etapa 1
-#' @description Function that ...
-#' @param species The motif obteined in the cluster
-#' @param start The motif obteined in the cluster
-#' @param end The motif obteined in the cluster
-#' @return The refined motif
+#' @description Function that returns the genomic sequence of the specified
+#' region of the given species.
+#' @param species The species name/alias. (EX: human, homo_sapiens, mouse)
+#' @param start The start of query region. A maximum of 10Mb is allowed to be
+#' requested at any one time
+#' @param end The end of query region.
+#' @return The sequence in format fasta
 #' @note
-#'
-#' example<-etapa5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50")
+#' The value of the species argument must be loaded.
+#' human <- "human", mouse="mouse" (you need load this value to
+#' make the function work)
+#' etapa1_Motifsetapa1_Motifs(human,16185,16235)
 #' @export
 etapa1_Motifs=function(species,start,end) {
+
   library(httr)
   library(jsonlite)
   library(xml2)
+  if (start >= end){
+    stop("The start can't be bigger than end")
+  }
 
-
+  s<-format(start, scientific = F) #evitar numeros tipo 1e+6
+  e<-format(end, scientific = F)
   server <- "https://rest.ensembl.org"
   #ext <- paste("/sequence/region/human/X:1000000..1000050:?")
-  ext2 <- paste0("/sequence/region/",species,"/X:",start,"..",end,":?", collapse = ",")
+  ext2 <- paste0("/sequence/region/",species,"/X:",s,"..",e,":?", collapse = ",")
 
   r <- GET(paste(server, ext2, sep = ""), content_type("text/x-plain"))
 
   stop_for_status(r)
   rr <- (content(r))
-  cat(paste(rr$id,rr$seq,sep = "\n"));
-
+  res <- cat(paste(rr$id,rr$seq,sep = "\n"));
+  return(res)
 }

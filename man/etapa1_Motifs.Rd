@@ -4,14 +4,26 @@
 \alias{etapa1_Motifs}
 \title{Etapa 1}
 \usage{
-etapa1_Motifs()
+etapa1_Motifs(species, start, end)
+}
+\arguments{
+\item{species}{The species name/alias. (EX: human, homo_sapiens, mouse)}
+
+\item{start}{The start of query region. A maximum of 10Mb is allowed to be
+requested at any one time}
+
+\item{end}{The end of query region.}
 }
 \value{
-The refined motif
+The sequence in format fasta
 }
 \description{
-Function that ...
+Function that returns the genomic sequence of the specified
+region of the given species.
 }
 \note{
-example<-etapa5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50")
+The value of the species argument must be loaded.
+human <- "human", mouse="mouse" (you need load this value to
+make the function work)
+etapa1_Motifsetapa1_Motifs(human,16185,16235)
 }

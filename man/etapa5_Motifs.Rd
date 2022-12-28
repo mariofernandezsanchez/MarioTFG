@@ -19,7 +19,7 @@ etapa5_Motifs(motifcl, seq_file, seqbkg, name)
 The refined motif
 }
 \description{
-Function that ...
+Function that we use to obtain the refined motif
 }
 \note{
 example<-etapa5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50")

@@ -9,7 +9,7 @@ convertToDNAStringSet(ourpath, nFlist)
 \arguments{
 \item{ourpath}{Path where the sequence will be found}
 
-\item{nFlist}{The file .fasta (number)}
+\item{nFlist}{The file .fasta (number in your directory)}
 }
 \value{
 The DNAStringSet file
@@ -19,6 +19,8 @@ Function that helps us to convert a background sequence
 in a fasta format to one in DNAStringSet format
 }
 \note{
+region <- "peaks" (you need load this value to make the function work)
 file<-convertToDNAStringSet=function("ourpath", nFlist)
 Example: seq1<-convertToDNAStringSet=function(".", 1)
+seq1<-convertToDNAStringSet=function(".", 2)
 }
