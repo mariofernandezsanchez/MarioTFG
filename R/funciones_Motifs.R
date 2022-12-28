@@ -264,3 +264,31 @@ etapa5_Motifs=function(motifcl,seq_file,seqbkg,name){
     mrefined@qval <- menrich@listData[["Qval"]]
     mrefined
 }
+
+#' @title Etapa 1
+#' @description Function that ...
+#' @param species The motif obteined in the cluster
+#' @param start The motif obteined in the cluster
+#' @param end The motif obteined in the cluster
+#' @return The refined motif
+#' @note
+#'
+#' example<-etapa5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50")
+#' @export
+etapa1_Motifs=function(species,start,end) {
+  library(httr)
+  library(jsonlite)
+  library(xml2)
+
+
+  server <- "https://rest.ensembl.org"
+  #ext <- paste("/sequence/region/human/X:1000000..1000050:?")
+  ext2 <- paste0("/sequence/region/",species,"/X:",start,"..",end,":?", collapse = ",")
+
+  r <- GET(paste(server, ext2, sep = ""), content_type("text/x-plain"))
+
+  stop_for_status(r)
+  rr <- (content(r))
+  cat(paste(rr$id,rr$seq,sep = "\n"));
+
+}
