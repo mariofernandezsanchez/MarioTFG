@@ -243,7 +243,7 @@ trim_Motifs=function(motif){
   universalmotif::trim_motifs(motifs = motif, min.ic = 0.25)
 }
 
-#' @title Etapa 5
+#' @title Stage 5
 #' @description Function that we use to obtain the refined motif
 #' @param motifcl The motif obteined in the cluster
 #' @param seq_file The target sequences
@@ -252,10 +252,10 @@ trim_Motifs=function(motif){
 #' @return The refined motif
 #' @note
 #'
-#' example<-etapa5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50")
+#' example<-stage5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50")
 #' TODO: Añadir extra info y ¿bkg?
 #' @export
-etapa5_Motifs=function(motifcl,seq_file,seqbkg,name){
+stage5_Motifs=function(motifcl,seq_file,seqbkg,name){
 
     scan<-scan_Motif(motifcl,seq_file,0.7)
     mrefined<-create_MotifRefined(scan, name)
@@ -266,7 +266,7 @@ etapa5_Motifs=function(motifcl,seq_file,seqbkg,name){
     mrefined
 }
 
-#' @title Etapa 1
+#' @title Stage 1
 #' @description Function that returns the genomic sequence of the specified
 #' region of the given species.
 #' @param species The species name/alias. (EX: human, homo_sapiens, mouse)
@@ -278,27 +278,25 @@ etapa5_Motifs=function(motifcl,seq_file,seqbkg,name){
 #' The value of the species argument must be loaded.
 #' human <- "human", mouse="mouse" (you need load this value to
 #' make the function work)
-#' etapa1_Motifsetapa1_Motifs(human,16185,16235)
+#' stage1_Motifsetapa1_Motifs(human,16185,16235)
 #' @export
-etapa1_Motifs=function(species,start,end) {
+stage1_Motifs=function(species,start,end,izq,der) {
 
   library(httr)
   library(jsonlite)
   library(xml2)
+  options(scipen=999)  #evitar numeros cientificos tipo 1e+6
   if (start >= end){
     stop("The start can't be bigger than end")
   }
 
-  s<-format(start, scientific = F) #evitar numeros tipo 1e+6
-  e<-format(end, scientific = F)
   server <- "https://rest.ensembl.org"
-  #ext <- paste("/sequence/region/human/X:1000000..1000050:?")
-  ext2 <- paste0("/sequence/region/",species,"/X:",s,"..",e,":?", collapse = ",")
+  ext <- paste0("/sequence/region/",species,"/X:",start,"..",end,":?", collapse = ",")
 
-  r <- GET(paste(server, ext2, sep = ""), content_type("text/x-plain"))
+  r <- GET(paste(server, ext, sep = ""), content_type("text/x-plain"))
 
   stop_for_status(r)
   rr <- (content(r))
   res <- cat(paste(rr$id,rr$seq,sep = "\n"));
-  return(res)
+
 }
