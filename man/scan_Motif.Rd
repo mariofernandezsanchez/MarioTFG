@@ -4,10 +4,10 @@
 \alias{scan_Motif}
 \title{Scan sequences for matches to input motifs}
 \usage{
-scan_Motif(ClusterMotif, seq, th)
+scan_Motif(clusterMotif, seq, th)
 }
 \arguments{
-\item{ClusterMotif}{The motif in correct format}
+\item{clusterMotif}{The motif in correct format}
 
 \item{seq}{Sequence obtained in step 1 of each experiment
 in DNAStringSet format}
@@ -27,5 +27,5 @@ there is a match and that subsequence is one of those that the function
 returns and will be used to generate the refined motif.
 }
 \note{
-scan_Motif(ClusterMotif,seq_file,0,70)
+scan_Motif(clusterMotif,seq_file,0,70)
 }

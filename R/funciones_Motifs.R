@@ -198,18 +198,18 @@ score_Motif=function(motif, x){
 #' If that score exceeds the predetermined threshold, it is considered that
 #' there is a match and that subsequence is one of those that the function
 #' returns and will be used to generate the refined motif.
-#' @param ClusterMotif The motif in correct format
+#' @param clusterMotif The motif in correct format
 #' @param seq Sequence obtained in step 1 of each experiment
 #' in DNAStringSet format
 #' @param th Threshold that determines whether or not a sequence contains the
 #' motif
 #' @return The analysis of scanned sequences
 #' @note
-#' scan_Motif(ClusterMotif,seq_file,0,70)
+#' scan_Motif(clusterMotif,seq_file,0,70)
 #'
 #' @export
-scan_Motif=function(ClusterMotif,seq,th){
-  universalmotif::scan_sequences(motifs = ClusterMotif,sequences = seq,
+scan_Motif=function(clusterMotif,seq,th){
+  universalmotif::scan_sequences(motifs = clusterMotif,sequences = seq,
                                  threshold = th,threshold.type = "logodds",
                                  RC = TRUE)
 }
@@ -293,10 +293,10 @@ stage1_Motifs=function(species,start,end,izq,der) {
   server <- "https://rest.ensembl.org"
   ext <- paste0("/sequence/region/",species,"/X:",start,"..",end,":?", collapse = ",")
 
-  r <- GET(paste(server, ext, sep = ""), content_type("text/x-plain"))
+  r <- GET(paste(server, ext, sep = ""), content_type("text/x-fasta"))
 
   stop_for_status(r)
   rr <- (content(r))
-  res <- cat(paste(rr$id,rr$seq,sep = "\n"));
+  res <- cat(paste(rr,sep = "\n"));
 
 }
