@@ -256,7 +256,6 @@ trim_Motifs=function(motif, mincontent){
 #' @note
 #'
 #' example<-stage5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50",0.7)
-#' TODO: Añadir extra info y ¿bkg?
 #' @export
 stage5_Motifs=function(motifcl,seq_file,seqbkg,name,th){
 

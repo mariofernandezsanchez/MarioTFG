@@ -25,5 +25,4 @@ Function that we use to obtain the refined motif
 }
 \note{
 example<-stage5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50",0.7)
-TODO: Añadir extra info y ¿bkg?
 }
