@@ -1,0 +1,1 @@
+cmd = /Users/mariofernandezsanchez/Etapa 1/RUNX1/Fetal/seq_raw_peaks_GSE70660_CD34_FETAL_both.fasta human /Users/mariofernandezsanchez/HOMER/MARIORUNX1FetalRAW -fastaBg /Users/mariofernandezsanchez/HOMER/seq_genome_background_peaks_both.fasta -p 4 -len 8,10,12

@@ -21,6 +21,6 @@ in a fasta format to one in DNAStringSet format
 \note{
 region <- "peaks" (you need load this value to make the function work)
 file<-convertToDNAStringSet=function("ourpath", nFlist)
-Example: seq1<-convertToDNAStringSet=function(".", 1)
-seq1<-convertToDNAStringSet=function(".", 2)
+Example: seq1<-convertToDNAStringSet(".", 1)
+seq1<-convertToDNAStringSet(".", 2)
 }

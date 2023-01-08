@@ -4,10 +4,12 @@
 \alias{trim_Motifs}
 \title{Trim the motifs}
 \usage{
-trim_Motifs(motif)
+trim_Motifs(motif, mincontent)
 }
 \arguments{
 \item{motif}{Motif already merged}
+
+\item{mincontent}{Minimum allowed information content (0-1)}
 }
 \value{
 The definitive motif

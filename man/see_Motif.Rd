@@ -4,12 +4,10 @@
 \alias{see_Motif}
 \title{Draw a plot with the indicated motif}
 \usage{
-see_Motif(motif, n)
+see_Motif(motif)
 }
 \arguments{
 \item{motif}{Motif we want to see}
-
-\item{n}{Number of the motif within the sequence}
 }
 \value{
 The graphic with the motif sequence logo

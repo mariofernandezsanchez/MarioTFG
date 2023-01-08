@@ -4,7 +4,7 @@
 \alias{stage5_Motifs}
 \title{Stage 5}
 \usage{
-stage5_Motifs(motifcl, seq_file, seqbkg, name)
+stage5_Motifs(motifcl, seq_file, seqbkg, name, th)
 }
 \arguments{
 \item{motifcl}{The motif obteined in the cluster}
@@ -14,6 +14,8 @@ stage5_Motifs(motifcl, seq_file, seqbkg, name)
 \item{seqbkg}{The background sequences}
 
 \item{name}{Name of the refined motif}
+
+\item{th}{Threshold that determines whether or not a sequence contains the motif}
 }
 \value{
 The refined motif
@@ -22,6 +24,6 @@ The refined motif
 Function that we use to obtain the refined motif
 }
 \note{
-example<-stage5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50")
+example<-stage5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50",0.7)
 TODO: Añadir extra info y ¿bkg?
 }

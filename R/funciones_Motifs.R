@@ -7,8 +7,8 @@
 #' @note
 #' region <- "peaks" (you need load this value to make the function work)
 #' file<-convertToDNAStringSet=function("ourpath", nFlist)
-#' Example: seq1<-convertToDNAStringSet=function(".", 1)
-#' seq1<-convertToDNAStringSet=function(".", 2)
+#' Example: seq1<-convertToDNAStringSet(".", 1)
+#' seq1<-convertToDNAStringSet(".", 2)
 #'
 #' @export
 convertToDNAStringSet=function(ourpath, nFlist){
@@ -218,15 +218,14 @@ scan_Motif=function(clusterMotif,seq,th){
 #' @description Function that draws a graphic of the motif that is indicated as
 #' a parameter
 #' @param motif Motif we want to see
-#' @param n Number of the motif within the sequence
 #' @return The graphic with the motif sequence logo
 #' @note
 #' motif <- read_Motifs("./xxx/xxx.motif")
 #'
 #' see_Motif(motif)
 #' @export
-see_Motif=function(motif,n){
-  universalmotif::view_motifs(motif[n])
+see_Motif=function(motif){
+    universalmotif::view_motifs(motif)
 }
 
 
@@ -234,13 +233,15 @@ see_Motif=function(motif,n){
 #' @description Function that eliminates the positions of those motifs that
 #' contain little information
 #' @param motif Motif already merged
+#' @param mincontent Minimum allowed information content (0-1)
 #' @return The definitive motif
 #' @note
 #' def.motif <- trim_Motifs(motif)
 #'
 #' @export
-trim_Motifs=function(motif){
-  universalmotif::trim_motifs(motifs = motif, min.ic = 0.25)
+trim_Motifs=function(motif, mincontent){
+  if(missing(mincontent)){mincontent = 0.25}
+  universalmotif::trim_motifs(motifs = motif, min.ic = mincontent)
 }
 
 #' @title Stage 5
@@ -249,17 +250,18 @@ trim_Motifs=function(motif){
 #' @param seq_file The target sequences
 #' @param seqbkg The background sequences
 #' @param name Name of the refined motif
+#' @param th Threshold that determines whether or not a sequence contains the motif
 #' @return The refined motif
 #' @note
 #'
-#' example<-stage5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50")
+#' example<-stage5_Motifs(clusterp30[1],seqp30_50,SeqBackground,"Refined_p50",0.7)
 #' TODO: Añadir extra info y ¿bkg?
 #' @export
-stage5_Motifs=function(motifcl,seq_file,seqbkg,name){
+stage5_Motifs=function(motifcl,seq_file,seqbkg,name,th){
 
-    scan<-scan_Motif(motifcl,seq_file,0.7)
+    scan<-scan_Motif(motifcl,seq_file,th)
     mrefined<-create_MotifRefined(scan, name)
-    menrich<-enrich_Motifs(mrefined,seq_file,seqbkg,0.7)
+    menrich<-enrich_Motifs(mrefined,seq_file,seqbkg,th)
     mrefined@pval <- menrich@listData[["Pval"]]
     mrefined@eval <- menrich@listData[["Eval"]]
     mrefined@qval <- menrich@listData[["Qval"]]
@@ -300,3 +302,5 @@ stage1_Motifs=function(species,start,end,izq,der) {
   res <- cat(paste(rr,sep = "\n"));
 
 }
+
+

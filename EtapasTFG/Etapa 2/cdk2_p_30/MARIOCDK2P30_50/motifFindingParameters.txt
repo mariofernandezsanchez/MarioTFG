@@ -1,0 +1,1 @@
+cmd = /Users/mariofernandezsanchez/Etapa 1/CDK2/CDK2_PROGESTIN_30M/seq_50_peaks_GSE53855_T-47D_PROGESTIN_30M_both.fasta human /Users/mariofernandezsanchez/HOMER/MARIOCDK2P30_50 -fastaBg /Users/mariofernandezsanchez/HOMER/seq_genome_background_peaks_both.fasta -p 4 -len 8,10,12
