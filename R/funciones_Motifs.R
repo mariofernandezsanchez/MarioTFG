@@ -218,14 +218,15 @@ scan_Motif=function(clusterMotif,seq,th){
 #' @description Function that draws a graphic of the motif that is indicated as
 #' a parameter
 #' @param motif Motif we want to see
+#' @param usetype Diverse representation, you can chose One ('PCM', 'PPM', 'PWM', 'ICM')
 #' @return The graphic with the motif sequence logo
 #' @note
 #' motif <- read_Motifs("./xxx/xxx.motif")
 #'
-#' see_Motif(motif)
+#' see_Motif(motif,"ICM")
 #' @export
-see_Motif=function(motif){
-    universalmotif::view_motifs(motif)
+see_Motif=function(motif, usetype){
+    universalmotif::view_motifs(motif, use.type = usetype)
 }
 
 

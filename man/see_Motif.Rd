@@ -4,10 +4,12 @@
 \alias{see_Motif}
 \title{Draw a plot with the indicated motif}
 \usage{
-see_Motif(motif)
+see_Motif(motif, usetype)
 }
 \arguments{
 \item{motif}{Motif we want to see}
+
+\item{usetype}{Diverse representation, you can chose One ('PCM', 'PPM', 'PWM', 'ICM')}
 }
 \value{
 The graphic with the motif sequence logo
@@ -19,5 +21,5 @@ a parameter
 \note{
 motif <- read_Motifs("./xxx/xxx.motif")
 
-see_Motif(motif)
+see_Motif(motif,"ICM")
 }
