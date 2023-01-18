@@ -1,19 +1,19 @@
 #' @title Convert a motif list in format ".fasta" to DNAStringSet
 #' @description Function that helps us to convert a background sequence
 #' in a fasta format to one in DNAStringSet format
-#' @param ourpath Path where the sequence will be found
+#' @param file File that content the sequence
 #' @param nFlist The file .fasta (number in your directory)
 #' @return The DNAStringSet file
 #' @note
 #' region <- "peaks" (you need load this value to make the function work)
-#' file<-convertToDNAStringSet=function("ourpath", nFlist)
+#' file<-convertToDNAStringSet=function("file", nFlist)
 #' Example: seq1<-convertToDNAStringSet(".", 1)
 #' seq1<-convertToDNAStringSet(".", 2)
 #'
 #' @export
-convertToDNAStringSet=function(ourpath, nFlist){
+convertToDNAStringSet=function(file, nFlist){
 
-  list_files <- base::list.files(path = ourpath , pattern = region)
+  list_files <- base::list.files(path = file , pattern = region)
   file_seq <- (utils::read.table(list_files[nFlist]))
   file_seq <- file_seq[!BiocGenerics::grepl("^>", file_seq$V1),]
   file_seq <- BiocGenerics::as.vector(file_seq)

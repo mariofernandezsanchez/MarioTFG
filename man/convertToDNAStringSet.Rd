@@ -4,10 +4,10 @@
 \alias{convertToDNAStringSet}
 \title{Convert a motif list in format ".fasta" to DNAStringSet}
 \usage{
-convertToDNAStringSet(ourpath, nFlist)
+convertToDNAStringSet(file, nFlist)
 }
 \arguments{
-\item{ourpath}{Path where the sequence will be found}
+\item{file}{File that content the sequence}
 
 \item{nFlist}{The file .fasta (number in your directory)}
 }
@@ -20,7 +20,7 @@ in a fasta format to one in DNAStringSet format
 }
 \note{
 region <- "peaks" (you need load this value to make the function work)
-file<-convertToDNAStringSet=function("ourpath", nFlist)
+file<-convertToDNAStringSet=function("file", nFlist)
 Example: seq1<-convertToDNAStringSet(".", 1)
 seq1<-convertToDNAStringSet(".", 2)
 }
