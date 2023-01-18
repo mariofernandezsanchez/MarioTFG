@@ -4,10 +4,12 @@
 \alias{stage1_Motifs}
 \title{Stage 1}
 \usage{
-stage1_Motifs(species, start, end, izq, der)
+stage1_Motifs(species, chromosome, start, end)
 }
 \arguments{
 \item{species}{The species name/alias. (EX: human, homo_sapiens, mouse)}
+
+\item{chromosome}{The number of chromosome.}
 
 \item{start}{The start of query region. A maximum of 10Mb is allowed to be
 requested at any one time}

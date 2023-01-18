@@ -188,7 +188,7 @@ scoreSeq_Motifs=function(motif){
 #'
 #' @export
 score_Motif=function(motif, x){
-  -log(motif$pval[x])*log(motif$nsites[x])
+  return(-log(motif$pval[x])*log(motif$nsites[x]))
 }
 
 #' @title Scan sequences for matches to input motifs
@@ -208,7 +208,7 @@ score_Motif=function(motif, x){
 #' scan_Motif(clusterMotif,seq_file,0,70)
 #'
 #' @export
-scan_Motif=function(clusterMotif,seq,th){
+scan_Motifs=function(clusterMotif,seq,th){
   universalmotif::scan_sequences(motifs = clusterMotif,sequences = seq,
                                  threshold = th,threshold.type = "logodds",
                                  RC = TRUE)
@@ -265,13 +265,14 @@ stage5_Motifs=function(motifcl,seq_file,seqbkg,name,th){
     mrefined@pval <- menrich@listData[["Pval"]]
     mrefined@eval <- menrich@listData[["Eval"]]
     mrefined@qval <- menrich@listData[["Qval"]]
-    mrefined
+    return(mrefined)
 }
 
 #' @title Stage 1
 #' @description Function that returns the genomic sequence of the specified
 #' region of the given species.
 #' @param species The species name/alias. (EX: human, homo_sapiens, mouse)
+#' @param chromosome The number of chromosome.
 #' @param start The start of query region. A maximum of 10Mb is allowed to be
 #' requested at any one time
 #' @param end The end of query region.
@@ -282,7 +283,7 @@ stage5_Motifs=function(motifcl,seq_file,seqbkg,name,th){
 #' make the function work)
 #' stage1_Motifsetapa1_Motifs(human,16185,16235)
 #' @export
-stage1_Motifs=function(species,start,end,izq,der) {
+stage1_Motifs=function(species,chromosome,start,end) {
 
   library(httr)
   library(jsonlite)
@@ -293,14 +294,14 @@ stage1_Motifs=function(species,start,end,izq,der) {
   }
 
   server <- "https://rest.ensembl.org"
-  ext <- paste0("/sequence/region/",species,"/X:",start,"..",end,":?", collapse = ",")
+  ext <- paste0("/sequence/region/",species,chromosome,start,"..",end,":?", collapse = ",")
 
   r <- GET(paste(server, ext, sep = ""), content_type("text/x-fasta"))
 
   stop_for_status(r)
   rr <- (content(r))
   res <- cat(paste(rr,sep = "\n"));
-
+  return(res)
 }
 
 
