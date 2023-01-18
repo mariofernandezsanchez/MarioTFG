@@ -117,14 +117,18 @@ listToDF_Motifs=function(motif){
 #' @description Function that helps us to merge all the motifs into one,
 #' to obtain the final motif.
 #' @param motifs List of motifs we want to merge
+#' @param type The type of matrix that represents the motif and that will be
+#' used for alignment. You can chose between "PPM" or "ICM"
+#' @param method Alignment metric between motifs. You can chose one method: PCC,
+#' EUCL,SW,KL,ALLR,BHAT,HELL,SEUCL,MAN,ALLR_LL, WEUCL, WPCC. See details
 #' @return The definitive motif
 #' @note
 #'
 #' merge.motifs <- merge_Motifs=function(motif)
 #'
 #' @export
-merge_Motifs=function(motifs){
-  universalmotif::merge_motifs(motifs, method = "PCC", use.type = "PPM",
+merge_Motifs=function(motifs,type,method){
+  universalmotif::merge_motifs(motifs, use.type = type, method = method,
                                tryRC = F)
 }
 
@@ -259,7 +263,7 @@ trim_Motifs=function(motif, mincontent){
 #' @export
 stage5_Motifs=function(motifcl,seq_file,seqbkg,name,th){
 
-    scan<-scan_Motif(motifcl,seq_file,th)
+    scan<-scan_Motifs(motifcl,seq_file,th)
     mrefined<-create_MotifRefined(scan, name)
     menrich<-enrich_Motifs(mrefined,seq_file,seqbkg,th)
     mrefined@pval <- menrich@listData[["Pval"]]

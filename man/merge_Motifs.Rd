@@ -4,10 +4,16 @@
 \alias{merge_Motifs}
 \title{Merge motifs}
 \usage{
-merge_Motifs(motifs)
+merge_Motifs(motifs, type, method)
 }
 \arguments{
 \item{motifs}{List of motifs we want to merge}
+
+\item{type}{The type of matrix that represents the motif and that will be
+used for alignment. You can chose between "PPM" or "ICM"}
+
+\item{method}{Alignment metric between motifs. You can chose one method: PCC,
+EUCL,SW,KL,ALLR,BHAT,HELL,SEUCL,MAN,ALLR_LL, WEUCL, WPCC. See details}
 }
 \value{
 The definitive motif
