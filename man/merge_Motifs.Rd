@@ -23,5 +23,5 @@ Function that helps us to merge all the motifs into one,
 to obtain the final motif.
 }
 \note{
-merge.motifs <- merge_Motifs=function(motif)
+merge.motifs <- merge_Motifs=function(motif,"PPM", "PCC")
 }

@@ -66,7 +66,7 @@ create_MotifRefined=function(scan_target,name){
 #' @return The enrichment analysis of this motif
 #' @note
 #'
-#' enrich_Motifs=function(cdk2_100,seq_file_cdk2_100,0.7)
+#' enrich_Motifs=function(cdk2_100,seq_file,seqbkg,0.7)
 #' @export
 enrich_Motifs=function(motifRefined,seq,bkg,th){
   universalmotif::enrich_motifs(motifs = motifRefined, sequences = seq,
@@ -124,7 +124,7 @@ listToDF_Motifs=function(motif){
 #' @return The definitive motif
 #' @note
 #'
-#' merge.motifs <- merge_Motifs=function(motif)
+#' merge.motifs <- merge_Motifs=function(motif,"PPM", "PCC")
 #'
 #' @export
 merge_Motifs=function(motifs,type,method){

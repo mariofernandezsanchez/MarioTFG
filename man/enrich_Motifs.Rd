@@ -24,5 +24,5 @@ Function that helps us to make an enrichment analysis
 of the refined motif compared to its background sequence.
 }
 \note{
-enrich_Motifs=function(cdk2_100,seq_file_cdk2_100,0.7)
+enrich_Motifs=function(cdk2_100,seq_file,seqbkg,0.7)
 }
